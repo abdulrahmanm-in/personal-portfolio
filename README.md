@@ -1,13 +1,10 @@
-# Abdul Rahman Portfolio
+# Abdul Rahman — Portfolio
 
-Dark, minimal software-engineer portfolio built with:
+Showcase of backend-focused engineering work by Abdul Rahman. This fast, dark-themed portfolio highlights production systems, automated tests, and deployment-ready projects.
 
-- Next.js
-- TypeScript
-- Tailwind CSS
-- Lucide React
+Built with Next.js, TypeScript and Tailwind CSS. Optimized for accessibility and quick navigation.
 
-## Run locally
+## Quick start
 
 ```bash
 npm install
@@ -16,25 +13,25 @@ npm run dev
 
 Open http://localhost:3000
 
+## What you'll find here
+
+- Featured projects with live demos and source links
+- Tech stack and tooling used across projects
+- Contact form (Formspree) and downloadable resume
+- Deployment notes (Netlify + Cloudflare)
+
 ## Customize
 
-Edit `app/page.tsx` for your:
+Edit `app/page.tsx` to update name, bio, projects, links, or contact details.
 
-- name
-- bio
-- projects
-- GitHub links
-- LinkedIn
-- certifications
-- experience
-- contact information
+Place your resume at `public/Abdul_Rahman_Resume.pdf` to enable the Resume button.
 
-Place your resume at:
+## Deployment
 
-`public/Abdul_Rahman_Resume.pdf`
+This site is live at https://portfolio.icqs.fyi/ (deployed via Netlify and proxied through Cloudflare). You can deploy to Vercel, Netlify, or any Next.js-compatible host.
 
-Then the Resume button will work automatically.
+## Credits
 
-## Deploy
+Icons: Lucide React
 
-This project can be deployed directly to Vercel or another Next.js-compatible host.
+If you'd like help polishing copy, adding screenshots, or creating animated project thumbnails, tell me which project to prioritize and I'll implement it.

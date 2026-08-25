@@ -61,6 +61,31 @@ body {
   background-size: 42px 42px;
 }
 
+/* subtle animated background movement */
+@keyframes drift {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 10% 5%; }
+  100% { background-position: 0% 0%; }
+}
+
+.grid-bg {
+  animation: drift 18s linear infinite;
+}
+
+/* Entrance animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.7s ease both;
+}
+
+.fade-in-slow {
+  animation: fadeIn 1s ease both;
+}
+
 /* =========================================================
    GENERAL
 ========================================================= */
