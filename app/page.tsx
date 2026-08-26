@@ -127,9 +127,13 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
           <a
             href="#home"
+            aria-label="Abdul Rahman - Home"
             className="flex items-center gap-3 font-semibold"
           >
-            <span className="text-2xl font-black text-white">
+            <span
+              aria-hidden="true"
+              className="text-2xl font-black text-white"
+            >
               &lt;/&gt;
             </span>
 
@@ -138,7 +142,10 @@ export default function Home() {
             </span>
           </a>
 
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav
+            aria-label="Primary navigation"
+            className="hidden items-center gap-8 md:flex"
+          >
             {[
               "Home",
               "About",
@@ -158,24 +165,49 @@ export default function Home() {
 
             <a
               href="/Abdul_Rahman_Resume.pdf"
+              aria-label="Download Abdul Rahman's resume"
               className="flex items-center gap-2 rounded-lg border border-emerald-400/60 px-4 py-2 text-sm text-emerald-300 transition hover:bg-emerald-400/10"
             >
               Resume
-              <Download size={15} />
+              <Download
+                size={15}
+                aria-hidden="true"
+              />
             </a>
           </nav>
 
           <button
+            type="button"
             onClick={() => setMenuOpen(!menuOpen)}
             className="rounded-lg border border-white/10 p-2 md:hidden"
-            aria-label="Toggle menu"
+            aria-label={
+              menuOpen
+                ? "Close navigation menu"
+                : "Open navigation menu"
+            }
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
           >
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+            {menuOpen ? (
+              <X
+                size={20}
+                aria-hidden="true"
+              />
+            ) : (
+              <Menu
+                size={20}
+                aria-hidden="true"
+              />
+            )}
           </button>
         </div>
 
         {menuOpen && (
-          <nav className="border-t border-white/5 px-6 py-4 md:hidden">
+          <nav
+            id="mobile-navigation"
+            aria-label="Mobile navigation"
+            className="border-t border-white/5 px-6 py-4 md:hidden"
+          >
             <div className="flex flex-col gap-4">
               {[
                 "Home",
@@ -194,6 +226,18 @@ export default function Home() {
                   {item}
                 </a>
               ))}
+
+              <a
+                href="/Abdul_Rahman_Resume.pdf"
+                aria-label="Download Abdul Rahman's resume"
+                className="mt-2 flex items-center justify-center gap-2 rounded-lg border border-emerald-400/60 px-4 py-2.5 text-sm font-semibold text-emerald-300 transition hover:bg-emerald-400/10"
+              >
+                Resume
+                <Download
+                  size={15}
+                  aria-hidden="true"
+                />
+              </a>
             </div>
           </nav>
         )}
@@ -205,6 +249,7 @@ export default function Home() {
 
       <section
         id="home"
+        aria-labelledby="hero-title"
         className="grid-bg relative overflow-hidden"
       >
         <div className="mx-auto grid min-h-[650px] max-w-7xl items-center gap-14 px-6 py-20 lg:grid-cols-2 lg:px-8">
@@ -213,12 +258,18 @@ export default function Home() {
           <div className="fade-in min-w-0">
             <div className="mb-6 inline-block">
               <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-300">
-                <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                <span
+                  aria-hidden="true"
+                  className="h-2 w-2 rounded-full bg-emerald-400"
+                />
                 Available for Opportunities
               </span>
             </div>
 
-            <h1 className="max-w-3xl text-6xl font-black leading-[1.1] tracking-tight md:text-7xl">
+            <h1
+              id="hero-title"
+              className="max-w-3xl text-6xl font-black leading-[1.1] tracking-tight md:text-7xl"
+            >
               Software
               <br />
               <span className="accent">Engineer</span>
@@ -228,9 +279,18 @@ export default function Home() {
               2 years of experience delivering production web applications
               and backend systems. Focused on building scalable REST APIs,
               automated pipelines, and cloud-ready services using{" "}
-              <span className="font-semibold text-white">FastAPI</span>,{" "}
-              <span className="font-semibold text-white">PostgreSQL</span>,{" "}
-              <span className="font-semibold text-white">Docker</span>, and{" "}
+              <span className="font-semibold text-white">
+                FastAPI
+              </span>
+              ,{" "}
+              <span className="font-semibold text-white">
+                PostgreSQL
+              </span>
+              ,{" "}
+              <span className="font-semibold text-white">
+                Docker
+              </span>
+              , and{" "}
               <span className="font-semibold text-white">
                 AI-assisted workflows
               </span>{" "}
@@ -246,6 +306,7 @@ export default function Home() {
 
                 <ArrowRight
                   size={18}
+                  aria-hidden="true"
                   className="transition-transform group-hover:translate-x-1"
                 />
               </a>
@@ -255,29 +316,51 @@ export default function Home() {
                 className="group inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 py-3.5 font-semibold text-white backdrop-blur transition-all hover:border-emerald-400/60 hover:bg-white/10"
               >
                 Get In Touch
-                <Mail size={18} />
+
+                <Mail
+                  size={18}
+                  aria-hidden="true"
+                />
               </a>
             </div>
 
             {/* SOCIAL LINKS */}
 
-            <div className="mt-10 flex gap-3">
+            <div
+              className="mt-10 flex gap-3"
+              aria-label="Social links"
+            >
               <Social
                 href="https://github.com/abdulrahmanm-in"
                 label="GitHub"
-                icon={<SiGithub size={19} />}
+                icon={
+                  <SiGithub
+                    size={19}
+                    aria-hidden="true"
+                  />
+                }
               />
 
               <Social
                 href="https://www.linkedin.com/in/abdul-rahman-m-660158206"
                 label="LinkedIn"
-                icon={<FaLinkedin size={19} />}
+                icon={
+                  <FaLinkedin
+                    size={19}
+                    aria-hidden="true"
+                  />
+                }
               />
 
               <Social
                 href="mailto:indmabdulrahman@gmail.com"
                 label="Email"
-                icon={<Mail size={19} />}
+                icon={
+                  <Mail
+                    size={19}
+                    aria-hidden="true"
+                  />
+                }
               />
             </div>
           </div>
@@ -287,13 +370,25 @@ export default function Home() {
           ================================================= */}
 
           <div className="relative hidden min-w-0 lg:block fade-in-slow">
-            <div className="absolute -inset-8 rounded-full bg-emerald-400/5 blur-3xl" />
+            <div
+              aria-hidden="true"
+              className="absolute -inset-8 rounded-full bg-emerald-400/5 blur-3xl"
+            />
 
             <div className="code-window glow relative mx-auto w-full max-w-xl overflow-hidden rounded-2xl">
               <div className="flex items-center gap-2 border-b border-white/10 px-5 py-4">
-                <span className="dot bg-red-400" />
-                <span className="dot bg-yellow-400" />
-                <span className="dot bg-green-400" />
+                <span
+                  aria-hidden="true"
+                  className="dot bg-red-400"
+                />
+                <span
+                  aria-hidden="true"
+                  className="dot bg-yellow-400"
+                />
+                <span
+                  aria-hidden="true"
+                  className="dot bg-green-400"
+                />
 
                 <span className="ml-auto text-xs text-slate-500">
                   main.py
@@ -330,15 +425,24 @@ def health_check():
 
             {/* FLOATING ICONS */}
 
-            <div className="absolute -right-5 top-4 rounded-xl border border-white/10 bg-[#0c1420] p-4 text-2xl">
+            <div
+              aria-hidden="true"
+              className="absolute -right-5 top-4 rounded-xl border border-white/10 bg-[#0c1420] p-4 text-2xl"
+            >
               🐍
             </div>
 
-            <div className="absolute -bottom-8 left-5 rounded-xl border border-white/10 bg-[#0c1420] p-4 text-2xl">
+            <div
+              aria-hidden="true"
+              className="absolute -bottom-8 left-5 rounded-xl border border-white/10 bg-[#0c1420] p-4 text-2xl"
+            >
               ⚡
             </div>
 
-            <div className="absolute -bottom-8 right-8 rounded-xl border border-white/10 bg-[#0c1420] p-4 text-2xl">
+            <div
+              aria-hidden="true"
+              className="absolute -bottom-8 right-8 rounded-xl border border-white/10 bg-[#0c1420] p-4 text-2xl"
+            >
               🐘
             </div>
           </div>
@@ -351,6 +455,7 @@ def health_check():
 
       <section
         id="about"
+        aria-labelledby="about-title"
         className="border-t border-white/10 bg-gradient-to-b from-transparent via-emerald-500/5 to-transparent"
       >
         <div className="mx-auto grid max-w-7xl gap-16 px-6 py-24 lg:grid-cols-2 lg:px-8">
@@ -358,7 +463,8 @@ def health_check():
 
           <div>
             <SectionTitle
-              icon={<UserRound size={22} />}
+              id="about-title"
+              icon={<UserRound size={22} aria-hidden="true" />}
               title="About Me"
             />
 
@@ -402,12 +508,20 @@ def health_check():
 
             <div className="mt-8 space-y-3 text-sm">
               <div className="flex items-center gap-3 text-slate-300">
-                <MapPin size={18} className="accent" />
+                <MapPin
+                  size={18}
+                  aria-hidden="true"
+                  className="accent"
+                />
                 Chennai, India
               </div>
 
               <div className="flex items-center gap-3 text-slate-300">
-                <Globe2 size={18} className="accent" />
+                <Globe2
+                  size={18}
+                  aria-hidden="true"
+                  className="accent"
+                />
                 Open to Remote & On-site Opportunities
               </div>
             </div>
@@ -417,7 +531,11 @@ def health_check():
               className="mt-8 inline-flex items-center gap-2 rounded-lg border border-emerald-400/50 bg-emerald-400/10 px-5 py-3 font-semibold text-emerald-300 transition hover:border-emerald-400 hover:bg-emerald-400/20"
             >
               Get To Know Me
-              <ArrowRight size={18} />
+
+              <ArrowRight
+                size={18}
+                aria-hidden="true"
+              />
             </a>
           </div>
 
@@ -425,7 +543,7 @@ def health_check():
 
           <div>
             <SectionTitle
-              icon={<Code2 size={22} />}
+              icon={<Code2 size={22} aria-hidden="true" />}
               title="Core Tech Stack"
             />
 
@@ -436,6 +554,7 @@ def health_check():
                   className="group flex min-w-0 items-center gap-3 rounded-xl border border-[#1c2938] bg-gradient-to-br from-[#0f1723] to-[#080e17] px-4 py-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-400/40"
                 >
                   <div
+                    aria-hidden="true"
                     className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border"
                     style={{
                       color,
@@ -462,12 +581,19 @@ def health_check():
 
       <section
         id="projects"
+        aria-labelledby="projects-title"
         className="border-t border-white/10"
       >
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
           <div className="mb-12 max-w-2xl">
             <SectionTitle
-              icon={<BriefcaseBusiness size={22} />}
+              id="projects-title"
+              icon={
+                <BriefcaseBusiness
+                  size={22}
+                  aria-hidden="true"
+                />
+              }
               title="Featured Projects"
             />
 
@@ -489,11 +615,15 @@ def health_check():
                     {project.iconImg ? (
                       <img
                         src={project.iconImg}
-                        alt={`${project.name} logo`}
+                        alt={`${project.name} project logo`}
+                        width={48}
+                        height={48}
                         className="h-12 w-12 rounded-md object-contain"
                       />
                     ) : (
-                      project.icon
+                      <span aria-hidden="true">
+                        {project.icon}
+                      </span>
                     )}
                   </div>
                 </div>
@@ -506,7 +636,7 @@ def health_check():
 
                     {project.featured && (
                       <span className="mt-3 inline-block rounded-full border border-emerald-400/30 bg-gradient-to-r from-emerald-500/20 to-emerald-400/10 px-4 py-1 text-xs font-semibold text-emerald-300">
-                        ✓ Featured
+                        Featured project
                       </span>
                     )}
                   </div>
@@ -515,7 +645,10 @@ def health_check():
                     {project.description}
                   </p>
 
-                  <div className="mb-8 flex flex-wrap gap-2">
+                  <div
+                    className="mb-8 flex flex-wrap gap-2"
+                    aria-label={`${project.name} technologies`}
+                  >
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
@@ -531,20 +664,30 @@ def health_check():
                       href={project.href}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`View ${project.name} live demo`}
                       className="inline-flex items-center gap-2 text-emerald-300 transition hover:text-emerald-100"
                     >
                       Live Demo
-                      <ExternalLink size={14} />
+
+                      <ExternalLink
+                        size={14}
+                        aria-hidden="true"
+                      />
                     </a>
 
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`View ${project.name} source code on GitHub`}
                       className="inline-flex items-center gap-2 text-slate-400 transition hover:text-emerald-300"
                     >
                       View Code
-                      <Code2 size={14} />
+
+                      <Code2
+                        size={14}
+                        aria-hidden="true"
+                      />
                     </a>
                   </div>
                 </div>
@@ -557,10 +700,15 @@ def health_check():
               href="https://github.com/abdulrahmanm-in"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="View all projects on GitHub"
               className="inline-flex items-center gap-2 rounded-lg border border-emerald-400/50 bg-emerald-500/10 px-6 py-3 font-semibold text-emerald-300 transition hover:bg-emerald-500/20"
             >
               View All Projects
-              <ArrowRight size={18} />
+
+              <ArrowRight
+                size={18}
+                aria-hidden="true"
+              />
             </a>
           </div>
         </div>
@@ -572,6 +720,7 @@ def health_check():
 
       <section
         id="experience"
+        aria-labelledby="experience-title"
         className="border-t border-white/10 bg-gradient-to-b from-transparent via-emerald-500/5 to-transparent"
       >
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-2 lg:px-8">
@@ -579,12 +728,21 @@ def health_check():
 
           <div>
             <SectionTitle
-              icon={<BriefcaseBusiness size={19} />}
+              id="experience-title"
+              icon={
+                <BriefcaseBusiness
+                  size={19}
+                  aria-hidden="true"
+                />
+              }
               title="Experience"
             />
 
             <div className="relative mt-8 pl-7">
-              <div className="timeline-line absolute left-1 top-1 h-full w-px" />
+              <div
+                aria-hidden="true"
+                className="timeline-line absolute left-1 top-1 h-full w-px"
+              />
 
               <Experience
                 active
@@ -604,9 +762,18 @@ def health_check():
 
           {/* CERTIFICATIONS */}
 
-          <div id="certifications">
+          <div
+            id="certifications"
+            aria-labelledby="certifications-title"
+          >
             <SectionTitle
-              icon={<ShieldCheck size={19} />}
+              id="certifications-title"
+              icon={
+                <ShieldCheck
+                  size={19}
+                  aria-hidden="true"
+                />
+              }
               title="Certifications"
             />
 
@@ -635,6 +802,7 @@ def health_check():
 
       <section
         id="contact"
+        aria-labelledby="contact-title"
         className="border-t border-white/10"
       >
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-2 lg:px-8">
@@ -642,7 +810,13 @@ def health_check():
 
           <div>
             <SectionTitle
-              icon={<Sparkles size={19} />}
+              id="contact-title"
+              icon={
+                <Sparkles
+                  size={19}
+                  aria-hidden="true"
+                />
+              }
               title="Let's Connect"
             />
 
@@ -654,9 +828,14 @@ def health_check():
             <div className="mt-8 space-y-4 text-sm">
               <a
                 href="mailto:indmabdulrahman@gmail.com"
+                aria-label="Send an email to Abdul Rahman"
                 className="flex items-center gap-3 text-slate-300 transition hover:text-emerald-300"
               >
-                <Mail size={18} className="accent" />
+                <Mail
+                  size={18}
+                  aria-hidden="true"
+                  className="accent"
+                />
                 indmabdulrahman@gmail.com
               </a>
 
@@ -664,9 +843,14 @@ def health_check():
                 href="https://github.com/abdulrahmanm-in"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit Abdul Rahman's GitHub profile"
                 className="flex items-center gap-3 text-slate-300 transition hover:text-emerald-300"
               >
-                <SiGithub size={18} className="accent" />
+                <SiGithub
+                  size={18}
+                  aria-hidden="true"
+                  className="accent"
+                />
                 GitHub
               </a>
 
@@ -674,9 +858,14 @@ def health_check():
                 href="https://www.linkedin.com/in/abdul-rahman-m-660158206"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit Abdul Rahman's LinkedIn profile"
                 className="flex items-center gap-3 text-slate-300 transition hover:text-emerald-300"
               >
-                <FaLinkedin size={18} className="accent" />
+                <FaLinkedin
+                  size={18}
+                  aria-hidden="true"
+                  className="accent"
+                />
                 LinkedIn
               </a>
             </div>
@@ -710,8 +899,15 @@ function ContactForm() {
 
   if (state.succeeded) {
     return (
-      <div className="card flex min-h-[360px] flex-col items-center justify-center rounded-2xl p-8 text-center">
-        <div className="flex h-16 w-16 items-center justify-center rounded-full border border-emerald-400/20 bg-emerald-400/10 text-emerald-300">
+      <div
+        role="status"
+        aria-live="polite"
+        className="card flex min-h-[360px] flex-col items-center justify-center rounded-2xl p-8 text-center"
+      >
+        <div
+          aria-hidden="true"
+          className="flex h-16 w-16 items-center justify-center rounded-full border border-emerald-400/20 bg-emerald-400/10 text-emerald-300"
+        >
           <CheckCircle2 size={34} />
         </div>
 
@@ -731,6 +927,7 @@ function ContactForm() {
     <form
       onSubmit={handleSubmit}
       className="card rounded-2xl p-7"
+      aria-label="Contact form"
     >
       {/* NAME + EMAIL */}
 
@@ -748,6 +945,7 @@ function ContactForm() {
             className="field"
             name="name"
             placeholder="Your Name"
+            autoComplete="name"
             required
           />
 
@@ -773,6 +971,7 @@ function ContactForm() {
             name="email"
             type="email"
             placeholder="Your Email"
+            autoComplete="email"
             required
           />
 
@@ -800,6 +999,7 @@ function ContactForm() {
           className="field mt-4"
           name="subject"
           placeholder="Subject"
+          autoComplete="off"
           required
         />
 
@@ -840,10 +1040,16 @@ function ContactForm() {
       {/* GENERAL ERROR */}
 
       {state.errors && (
-        <ValidationError
-          errors={state.errors}
-          className="mt-3 text-sm text-red-400"
-        />
+        <div
+          role="alert"
+          aria-live="assertive"
+          className="mt-3"
+        >
+          <ValidationError
+            errors={state.errors}
+            className="text-sm text-red-400"
+          />
+        </div>
       )}
 
       {/* BUTTON */}
@@ -855,7 +1061,12 @@ function ContactForm() {
       >
         {state.submitting ? "Sending..." : "Send Message"}
 
-        {!state.submitting && <Send size={17} />}
+        {!state.submitting && (
+          <Send
+            size={17}
+            aria-hidden="true"
+          />
+        )}
       </button>
     </form>
   );
@@ -897,15 +1108,26 @@ function Social({
 ========================================================= */
 
 function SectionTitle({
+  id,
   icon,
   title,
 }: {
+  id?: string;
   icon: React.ReactNode;
   title: string;
 }) {
   return (
-    <h2 className="flex items-center gap-3 text-2xl font-bold">
-      <span className="accent">{icon}</span>
+    <h2
+      id={id}
+      className="flex items-center gap-3 text-2xl font-bold"
+    >
+      <span
+        aria-hidden="true"
+        className="accent"
+      >
+        {icon}
+      </span>
+
       {title}
     </h2>
   );
@@ -933,6 +1155,7 @@ function Experience({
   return (
     <div className="relative pb-10">
       <span
+        aria-hidden="true"
         className={`absolute -left-[31px] top-1 h-3 w-3 rounded-full border-2 border-[#050a12] ${
           active ? "bg-emerald-400" : "bg-slate-600"
         }`}
@@ -963,7 +1186,10 @@ function Experience({
               key={bullet}
               className="flex gap-2"
             >
-              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-emerald-400" />
+              <span
+                aria-hidden="true"
+                className="mt-2 h-1 w-1 shrink-0 rounded-full bg-emerald-400"
+              />
               {bullet}
             </li>
           ))}
@@ -990,7 +1216,10 @@ function Certification({
 }) {
   return (
     <div className="card flex items-center gap-4 rounded-2xl p-5">
-      <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-white/[.03] text-xl">
+      <div
+        aria-hidden="true"
+        className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-white/[.03] text-xl"
+      >
         {icon === "aws"
           ? "☁️"
           : icon === "education"
@@ -1011,8 +1240,9 @@ function Certification({
       </div>
 
       <CheckCircle2
-        className="accent"
         size={22}
+        aria-hidden="true"
+        className="accent"
       />
     </div>
   );
