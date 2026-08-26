@@ -1,27 +1,137 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+const siteUrl = "https://portfolio.icqs.fyi";
+
 export const metadata: Metadata = {
-  title: "Abdul Rahman | Software Engineer",
+  metadataBase: new URL(siteUrl),
+
+  title: {
+    default: "Abdul Rahman | Software Engineer",
+    template: "%s | Abdul Rahman",
+  },
+
   description:
-    "Software Engineer focused on Python, FastAPI, PostgreSQL, REST APIs and cloud technologies.",
+    "Abdul Rahman is a Software Engineer specializing in Python, FastAPI, PostgreSQL, REST APIs, Docker, testing, and cloud-ready backend systems.",
+
+  applicationName: "Abdul Rahman Portfolio",
+
+  authors: [
+    {
+      name: "Abdul Rahman",
+      url: siteUrl,
+    },
+  ],
+
+  creator: "Abdul Rahman",
+  publisher: "Abdul Rahman",
+
+  alternates: {
+    canonical: "/",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  icons: {
+    icon: [
+      {
+        url: "/favicon.ico",
+        type: "image/x-icon",
+      },
+    ],
+    apple: "/favicon.ico",
+  },
+
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    title: "Abdul Rahman | Software Engineer",
+    description:
+      "Software Engineer specializing in Python, FastAPI, PostgreSQL, REST APIs, Docker, testing, and cloud-ready backend systems.",
+    siteName: "Abdul Rahman Portfolio",
+    locale: "en_IN",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Abdul Rahman — Software Engineer",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Abdul Rahman | Software Engineer",
+    description:
+      "Software Engineer specializing in Python, FastAPI, PostgreSQL, REST APIs, Docker, testing, and cloud-ready backend systems.",
+    images: ["/og-image.png"],
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#050a12",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Abdul Rahman",
+    url: siteUrl,
+    jobTitle: "Software Engineer",
+
+    description:
+      "Software Engineer specializing in Python, FastAPI, PostgreSQL, REST APIs, Docker, testing, and cloud-ready backend systems.",
+
+    sameAs: [
+      "https://github.com/abdulrahmanm-in",
+      "https://www.linkedin.com/in/abdul-rahman-m-660158206",
+    ],
+
+    knowsAbout: [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "REST APIs",
+      "Docker",
+      "GitHub Actions",
+      "Pytest",
+      "MongoDB",
+      "Angular",
+      "TypeScript",
+      "Linux",
+      "AWS",
+    ],
+  };
+
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="alternate icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/favicon.ico" />
-        <meta name="theme-color" content="#050a12" />
-        <meta property="og:title" content="Abdul Rahman | Software Engineer" />
-        <meta property="og:description" content="Python backend engineer — FastAPI, PostgreSQL, Docker, testing." />
-        <meta name="twitter:card" content="summary_large_image" />
-      </head>
-      <body>{children}</body>
+      <body>
+        {children}
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
+      </body>
     </html>
   );
 }
