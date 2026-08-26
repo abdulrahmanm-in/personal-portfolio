@@ -9,27 +9,12 @@ out/
 build/
 
 # Environment variables
-.env
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Vercel
-.vercel/
-
-# Netlify
-.netlify/
+.env*.local
 
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
 
 # OS files
 .DS_Store
@@ -41,10 +26,6 @@ Thumbs.db
 !.vscode/settings.json
 .idea/
 
-# Testing / Coverage
-coverage/
-.nyc_output/
-
 # Temporary files
 *.tmp
 *.temp
@@ -52,7 +33,3 @@ coverage/
 # Cache
 .cache/
 .parcel-cache/
-
-# Misc
-*.swp
-*.swo
